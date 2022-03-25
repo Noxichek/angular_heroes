@@ -1,0 +1,38 @@
+
+
+header {
+  margin: 0;
+  background-color: blueviolet;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+header h1{
+  margin-left: 20px;
+  color: white;
+}
+
+.btn {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  width: 70px;
+  height: 40px;
+  margin-left: 50px;
+  border-radius: 3px;
+}
+
+.btn:hover {
+  background-color: blueviolet; /* Green */
+  color: white;
+}
+
+.sig-in-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 60vh;
+}
