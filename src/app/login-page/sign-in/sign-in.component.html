@@ -30,7 +30,7 @@
 
 
   <div>
-    <button type="submit" [disabled]="form.invalid">Sign in</button>
-    <button (click)="newUser()" type="button">Create new account</button>
+    <button type="submit" [disabled]="form.invalid" (click)="signIn()">Sign in</button>
+    <button (click)="createNewUser()" type="button">Create new account</button>
   </div>
 </form>

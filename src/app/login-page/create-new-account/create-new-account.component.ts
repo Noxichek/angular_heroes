@@ -1,5 +1,8 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Component, EventEmitter, Output} from '@angular/core';
+import {FormControl, FormGroup} from "@angular/forms";
+import {Validators} from "../../shared/validators/validators";
+import {LocalStorageService} from "../../global/services/local-storage.service";
+import {LocalstorageKeys} from "../../global/constants/localstorage-keys";
 import {User} from "../../shared/interfaces";
 
 @Component({
@@ -7,46 +10,45 @@ import {User} from "../../shared/interfaces";
   templateUrl: './create-new-account.component.html',
   styleUrls: ['./create-new-account.component.scss']
 })
-export class CreateNewAccountComponent implements OnInit {
+export class CreateNewAccountComponent {
   @Output() onChanged = new EventEmitter<void>();
-  createForm!: FormGroup;
+  createForm: FormGroup = this.initForm();
 
-  constructor() { }
-
-  ngOnInit() {
-    this.createForm = new FormGroup({
-      username: new FormControl('', [
-        Validators.required,
-        Validators.pattern('^[a-zA-Z]+(\\s|-|[A-Z])[a-zA-Z]+$')
-      ]),
-      email: new FormControl('', [
-        Validators.required,
-        Validators.email,
-        Validators.pattern(/^\w*\.?\w*\.?\w*\.?\w*@\w{1,5}\.(com|net|org|co|us)$/)
-      ]),
-      password: new FormControl(null, [
-        Validators.required,
-        Validators.minLength(5),
-        Validators.pattern('^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\\D*\\d)[A-Za-z\\d$%.&!]{5,}$')
-      ])
-    })
-  };
-
-  submit() {
-    if (this.createForm.invalid) {
-      return
-    }
-
-    const user: User = {
-      email: this.createForm.value.email,
-      password: this.createForm.value.password,
-      username: this.createForm.value.username
-    }
-    console.log(user)
+  constructor(private readonly localStorageService: LocalStorageService) {
   }
 
-  newUser() {
+
+  switchToLogin(): void {
     this.createForm.reset();
-    this.onChanged.emit()
+    this.onChanged.emit();
+  };
+
+  private initForm(): FormGroup {
+    return new FormGroup({
+      username: new FormControl('', Validators.username),
+      email: new FormControl('', Validators.email),
+      password: new FormControl(null, Validators.password)
+    })
+  }
+
+  createNewUser(): void {
+    if (this.cheekIfEmailExist()) {
+      alert('This email cant used')
+    } else {
+      const customUser = this.createForm.value
+      const users = this.localStorageService.getData<User[]>(LocalstorageKeys.usersKey) || []
+
+      this.localStorageService.setData<User[]>(LocalstorageKeys.usersKey, [...users, customUser])
+      this.createForm.reset()
+    }
+  }
+
+  cheekIfEmailExist(): boolean {
+    const users = this.localStorageService.getData<User[]>(LocalstorageKeys.usersKey) || []
+    const customUserEmail = this.createForm.value.email
+
+    return users.some((user) => {
+      return user.email === customUserEmail
+    })
   }
 }

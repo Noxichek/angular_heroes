@@ -1,23 +1,14 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss']
 })
-export class LoginPageComponent implements OnInit {
+export class LoginPageComponent {
   isSignInView = true
 
-  constructor() {
-  }
-
-
-  ngOnInit(): void {
-
-  }
-
-
-  changeView() {
+  changeView(): void {
     this.isSignInView = !this.isSignInView
   }
 }
