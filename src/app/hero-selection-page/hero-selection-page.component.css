@@ -1,0 +1,33 @@
+
+.hero-list {
+  border: 1px solid black;
+  width: 70vw;
+}
+
+.hero-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+input {
+  width: 70vw;
+  margin: 20px 0 20px 0;
+  height: 40px;
+  font-size: 20px;
+}
+
+button {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  border: 1px solid #0000001f;
+  cursor: pointer;
+  padding: 0 15px;
+  margin: 5px;
+  box-shadow: 2px 2px 2px 2px #888888;
+  height: 40px;
+  border-radius: 15px;
+}
+
+button:hover {
+  background-color: darkgrey;
+}
