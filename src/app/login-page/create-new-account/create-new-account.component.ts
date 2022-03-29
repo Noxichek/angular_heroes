@@ -20,7 +20,7 @@ export class CreateNewAccountComponent {
 
   switchToLogin(): void {
     this.createForm.reset();
-    this.onChanged.emit();
+    // this.onChanged.emit();
   };
 
   private initForm(): FormGroup {
@@ -32,7 +32,7 @@ export class CreateNewAccountComponent {
   }
 
   createNewUser(): void {
-    if (this.cheekIfEmailExist()) {
+    if (this.checkIfEmailExist()) {
       alert('This email cant used')
     } else {
       const customUser = this.createForm.value
@@ -43,7 +43,7 @@ export class CreateNewAccountComponent {
     }
   }
 
-  cheekIfEmailExist(): boolean {
+  checkIfEmailExist(): boolean {
     const users = this.localStorageService.getData<User[]>(LocalstorageKeys.usersKey) || []
     const customUserEmail = this.createForm.value.email
 

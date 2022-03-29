@@ -31,6 +31,6 @@
 
   <div>
     <button type="submit" [disabled]="form.invalid" (click)="signIn()">Sign in</button>
-    <button (click)="createNewUser()" type="button">Create new account</button>
+    <a routerLink="/registration"><button (click)="createNewUser()" type="button">Create new account</button></a>
   </div>
 </form>

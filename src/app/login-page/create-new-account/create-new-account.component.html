@@ -9,6 +9,6 @@
 
   <div>
     <button type="submit" [disabled]="createForm.invalid" (click)="createNewUser()">Create new account</button>
-    <button (click)="switchToLogin()" type="button">Switch to login</button>
+    <a routerLink="/login"><button (click)="switchToLogin()" type="button">Switch to login</button></a>
   </div>
 </form>
