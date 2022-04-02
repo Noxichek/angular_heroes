@@ -16,7 +16,7 @@ export class SignInComponent implements OnInit{
   @Output() onChanged = new EventEmitter<void>();
   form: FormGroup = this.initForm()
 
-  constructor(private readonly localStorageService: LocalStorageService, private userService: UserService, private route: ActivatedRoute) {
+  constructor(private readonly localStorageService: LocalStorageService, private userService: UserService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
@@ -38,6 +38,7 @@ export class SignInComponent implements OnInit{
 
     if (user?.password === this.form.value.password) {
       this.userService.initSession(user!)
+      this.router.navigate(['select-hero'])
     } else {
       alert('Invalid email or password')
     }

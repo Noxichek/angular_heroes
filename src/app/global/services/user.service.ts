@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {LocalStorageService} from "./local-storage.service";
 import {BehaviorSubject, Observable} from "rxjs";
-import {User} from "../../shared/interfaces";
+import {User, UserSession} from "../../shared/interfaces";
 import {addHoursToDate} from "../../shared/helpers/helper";
+import {LocalstorageKeys} from "../constants/localstorage-keys";
 
 @Injectable({
   providedIn: 'root'
@@ -23,24 +24,28 @@ export class UserService {
   }
 
   constructor(private localStorageService: LocalStorageService) {
+    const userSession = localStorageService.getData<UserSession>(LocalstorageKeys.sessionKey);
+
+    this.currentUser = userSession.user;
   }
 
   initSession(user: User): void {
-    const dateNow = new Date()
+    const dateNow = new Date();
 
-    this.localStorageService.setData(user.email, dateNow);
+    this.localStorageService.setData(LocalstorageKeys.sessionKey, {user, sessionStartTime: dateNow});
     this.currentUser = user;
 
   }
 
   isSessionActive(): boolean {
-    const email = this.currentUser?.email
-    const dateNow = new Date()
+    const email = this.currentUser?.email;
+    const {sessionStartTime} = this.localStorageService.getData<UserSession>(LocalstorageKeys.sessionKey);
+    const dateNow = new Date();
 
-    if(!email) {
-      return false
+    if (!email) {
+      return false;
     }
-    return addHoursToDate(new Date(this.localStorageService.getData(email)), 1) > dateNow
+    return addHoursToDate(new Date(sessionStartTime), 1) > dateNow;
   }
 
 

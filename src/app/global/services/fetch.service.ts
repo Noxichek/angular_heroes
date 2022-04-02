@@ -19,7 +19,7 @@ export class FetchService {
   }
 
   getHeroesByName(name: string): Observable<Hero[]> {
-    return this.http.get<Response>(this.url + '/search' + name).pipe(
+    return this.http.get<Response>(this.url + 'search/' + name).pipe(
       map((response: Response) => {
         if (response.response === 'error') {
           return [] as Hero[];

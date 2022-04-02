@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://superheroapi.com/api/',
+  apiUrl: 'https://www.superheroapi.com/api.php/',
   apiToken: '2246724375469588/'
 };
 

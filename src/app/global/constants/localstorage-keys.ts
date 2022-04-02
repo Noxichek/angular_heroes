@@ -1,3 +1,5 @@
 export enum LocalstorageKeys {
-  usersKey = 'users'
+  usersKey = 'users',
+  sessionKey = 'currentSession'
 }
+

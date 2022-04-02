@@ -4,20 +4,18 @@ export interface User {
   username: string,
 }
 
+export interface UserSession {
+  user: User,
+  sessionStartTime: string
+}
+
 export interface Hero {
   id: number;
   name: string;
   image: {
     url: string
   }
-  powerstats: {
-    intelligence: string;
-    strength: string;
-    speed: string;
-    durability: string;
-    power: string;
-    combat: string;
-  }
+  powerstats: HeroPowerstats
   biography: {
     'full-name': string;
     'alter-egos': string;
@@ -44,3 +42,16 @@ export interface Hero {
     relatives: string;
   }
 }
+
+export interface HeroPowerstats {
+  [key: string] : string
+}
+
+// powerstats: {
+//   intelligence: string;
+//   strength: string;
+//   speed: string;
+//   durability: string;
+//   power: string;
+//   combat: string;
+// }

@@ -1,7 +1,5 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from "@angular/router";
-import {Observable} from "rxjs";
-import {SignInComponent} from "../sign-in/sign-in.component";
 import {UserService} from "../../global/services/user.service";
 
 @Injectable({
@@ -13,7 +11,7 @@ export class LoginGuardService implements CanActivate{
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree{
-    return this.userService.isSessionActive() ? true : this.router.createUrlTree(['login'], {queryParams: {expired: 'false'}})
+    return this.userService.isSessionActive() ? true : this.router.createUrlTree(['login'], {queryParams: {expired: 'true'}})
   }
 
 }

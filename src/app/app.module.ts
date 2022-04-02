@@ -8,6 +8,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SignInComponent } from './login-page/sign-in/sign-in.component';
 import { CreateNewAccountComponent } from './login-page/create-new-account/create-new-account.component';
 import { HeroSelectionPageComponent } from './hero-selection-page/hero-selection-page.component';
+import {HttpClientModule} from "@angular/common/http";
+import { AlphabeticSelectComponent } from './hero-selection-page/alphabetic-select/alphabetic-select.component';
 
 @NgModule({
   declarations: [
@@ -15,13 +17,15 @@ import { HeroSelectionPageComponent } from './hero-selection-page/hero-selection
     LoginPageComponent,
     SignInComponent,
     CreateNewAccountComponent,
-    HeroSelectionPageComponent
+    HeroSelectionPageComponent,
+    AlphabeticSelectComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

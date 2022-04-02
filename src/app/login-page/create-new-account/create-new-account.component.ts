@@ -20,7 +20,6 @@ export class CreateNewAccountComponent {
 
   switchToLogin(): void {
     this.createForm.reset();
-    // this.onChanged.emit();
   };
 
   private initForm(): FormGroup {
