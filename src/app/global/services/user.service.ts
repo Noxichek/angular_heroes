@@ -4,11 +4,13 @@ import {BehaviorSubject, Observable} from "rxjs";
 import {User, UserSession} from "../../shared/interfaces";
 import {addHoursToDate} from "../../shared/helpers/helper";
 import {LocalstorageKeys} from "../constants/localstorage-keys";
+import {StoreService} from "./store.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
   private currentUserStream = new BehaviorSubject<User | null>(null);
 
   public get currentUser$(): Observable<User | null> {
@@ -48,5 +50,16 @@ export class UserService {
     return addHoursToDate(new Date(sessionStartTime), 1) > dateNow;
   }
 
-
+  setHeroesToStorage(newState: any) {
+    const allUsers = this.localStorageService.getData<User[]>(LocalstorageKeys.usersKey)
+    const currentUserKey = this.currentUser?.email
+    const updatedUsers = allUsers.map(el => {
+      if(el.email !== currentUserKey) {
+        return el
+      } else {
+        return {...el, userState: newState}
+      }
+    })
+    this.localStorageService.setData(LocalstorageKeys.usersKey, updatedUsers)
+  }
 }

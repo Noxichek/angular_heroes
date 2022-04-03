@@ -18,19 +18,4 @@ export class LocalStorageService {
   removeData(key: string): void {
     localStorage.removeItem(key)
   }
-
-
-  setSessionData<T>(key: string, value: T) {
-    sessionStorage.setItem(key, JSON.stringify(value))
-  }
-
-  getSessionData<T>(key: string): T {
-    const item = sessionStorage.getItem(key)
-
-    return item ? JSON.parse(item) : ''
-  }
-
-  removeSessionData(key: string): void {
-    sessionStorage.removeItem(key)
-  }
 }

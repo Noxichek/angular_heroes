@@ -1,7 +1,10 @@
+import {UserState} from "../global/services/store.service";
+
 export interface User {
   email: string,
   password: string,
   username: string,
+  userState?: UserState
 }
 
 export interface UserSession {
@@ -12,6 +15,7 @@ export interface UserSession {
 export interface Hero {
   id: number;
   name: string;
+  isSelected: boolean;
   image: {
     url: string
   }
@@ -46,12 +50,3 @@ export interface Hero {
 export interface HeroPowerstats {
   [key: string] : string
 }
-
-// powerstats: {
-//   intelligence: string;
-//   strength: string;
-//   speed: string;
-//   durability: string;
-//   power: string;
-//   combat: string;
-// }

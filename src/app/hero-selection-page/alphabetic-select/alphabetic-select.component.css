@@ -1,0 +1,25 @@
+.btn-letter {
+  text-align: center;
+  border: 5px solid #ffc34f;
+  width: 35px;
+  line-height: 30px;
+  border-radius: 100%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.btn-letter:hover {
+  background-color: #888888;
+}
+
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 30vh;
+  margin-right: 30px;
+}
+

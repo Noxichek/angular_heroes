@@ -1,8 +1,13 @@
 <header>
-  <h1>Heroes Battle</h1>
-  <button class="btn">Login</button>
+  <a routerLink="select-hero"><h1>Heroes Battle</h1></a>
+  <button class="btn"
+          *ngIf="userService.isSessionActive() === false"
+  >Login
+  </button>
+
+  <button class="btn" (click)="logout()">Logout</button>
+  <button class="btn" (click)="navigateToUserInfo()" [disabled]="userService.isSessionActive() === false">User</button>
 </header>
 
-<div class="sig-in-form">
-  <router-outlet></router-outlet>
-</div>
+
+<router-outlet></router-outlet>

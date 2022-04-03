@@ -10,6 +10,13 @@ import { CreateNewAccountComponent } from './login-page/create-new-account/creat
 import { HeroSelectionPageComponent } from './hero-selection-page/hero-selection-page.component';
 import {HttpClientModule} from "@angular/common/http";
 import { AlphabeticSelectComponent } from './hero-selection-page/alphabetic-select/alphabetic-select.component';
+import { RecentSearchesComponent } from './hero-selection-page/recent-searches/recent-searches.component';
+import { HeroesComponent } from './user-info-page/heroes/heroes.component';
+import { HistoryComponent } from './user-info-page/history/history.component';
+import { PowerupsComponent } from './user-info-page/powerups/powerups.component';
+import { HeroListComponent } from './hero-list/hero-list.component';
+import { HeroCardComponent } from './hero-card/hero-card.component';
+import {UserInfoRouterModule} from "./user-info-page/user-info-router/user-info-router.module";
 
 @NgModule({
   declarations: [
@@ -18,14 +25,21 @@ import { AlphabeticSelectComponent } from './hero-selection-page/alphabetic-sele
     SignInComponent,
     CreateNewAccountComponent,
     HeroSelectionPageComponent,
-    AlphabeticSelectComponent
+    AlphabeticSelectComponent,
+    RecentSearchesComponent,
+    HeroesComponent,
+    HistoryComponent,
+    PowerupsComponent,
+    HeroListComponent,
+    HeroCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    UserInfoRouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

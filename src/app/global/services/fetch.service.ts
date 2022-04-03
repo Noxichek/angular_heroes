@@ -33,4 +33,8 @@ export class FetchService {
     return this.http.get<Hero>(this.url + id)
   }
 
+  getRandomHero(): Observable<Hero> {
+    return this.http.get<Hero>('https://superheroapi.com/api.php/2246724375469588/' + (Math.floor(Math.random()*(731-1))+1).toString())
+  }
+
 }
