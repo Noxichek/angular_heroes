@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {UserService} from "./user.service";
 import {Hero} from "../../shared/interfaces";
+import {LocalStorageService} from "./local-storage.service";
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +15,12 @@ export class StoreService {
     recentSearch: []
   }
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private localStorageService: LocalStorageService) {
     this.initUserState()
   }
 
   initUserState() {
-    if(this.userService.currentUser?.userState) {
+    if (this.userService.currentUser?.userState) {
       this.userState = this.userService.currentUser.userState;
     }
   }
@@ -27,6 +28,8 @@ export class StoreService {
   changeUserState<T>(key: string, value: T): void {
     this.userState = {...this.userState, [key]:value}
     this.userService.setHeroesToStorage(this.userState)
+    this.userService.updateSession(this.userState)
+    console.log(this.userState)
   }
 
   patchUserState<T>(key: UserStateKeys, value: T): void {
@@ -58,6 +61,16 @@ export class StoreService {
       this.userState.selectedHero = this.userState.selectedHeroes.at(-2) || {}
     }
     this.removeItem(UserStateKeys.SelectedHeroes, id)
+  }
+
+  clearUserState() {
+    this.userState = {
+      selectedHeroes: [] ,
+      selectedHero: {} as Hero,
+      battleHistory: [],
+      powerups: [],
+      recentSearch: []
+    }
   }
 }
 

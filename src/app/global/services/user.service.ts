@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {LocalStorageService} from "./local-storage.service";
 import {BehaviorSubject, Observable} from "rxjs";
-import {User, UserSession} from "../../shared/interfaces";
+import {CurrentSession, User, UserSession} from "../../shared/interfaces";
 import {addHoursToDate} from "../../shared/helpers/helper";
 import {LocalstorageKeys} from "../constants/localstorage-keys";
+import {UserState} from "./store.service";
 
 @Injectable({
   providedIn: 'root'
@@ -29,13 +30,14 @@ export class UserService {
 
     this.currentUser = userSession.user;
 
-    console.log(this.currentUser.userState?.recentSearch)
+
   }
 
   initSession(user: User): void {
     const dateNow = new Date();
 
     this.localStorageService.setData(LocalstorageKeys.sessionKey, {user, sessionStartTime: dateNow});
+
     this.currentUser = user;
 
   }
@@ -51,7 +53,7 @@ export class UserService {
     return addHoursToDate(new Date(sessionStartTime), 1) > dateNow;
   }
 
-  setHeroesToStorage(newState: any) {
+  setHeroesToStorage(newState: UserState) {
     const allUsers = this.localStorageService.getData<User[]>(LocalstorageKeys.usersKey)
     const currentUserKey = this.currentUser?.email
     const updatedUsers = allUsers.map(el => {
@@ -64,4 +66,11 @@ export class UserService {
     this.localStorageService.setData(LocalstorageKeys.usersKey, updatedUsers)
   }
 
+  updateSession(newState: UserState) {
+    const currentSession = this.localStorageService.getData<CurrentSession>(LocalstorageKeys.sessionKey)
+    currentSession.user.userState = newState
+    this.localStorageService.setData(LocalstorageKeys.sessionKey, {...currentSession})
+  }
+
 }
+

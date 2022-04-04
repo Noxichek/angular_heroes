@@ -22,6 +22,7 @@ export class AppComponent {
   logout() {
     this.localStorageService.removeData('currentSession')
     this.router.navigate(['login'])
+    this.storeService.clearUserState()
   }
 
   navigateToUserInfo() {

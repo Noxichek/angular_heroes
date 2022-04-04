@@ -50,3 +50,8 @@ export interface Hero {
 export interface HeroPowerstats {
   [key: string] : string
 }
+
+export interface CurrentSession {
+  sessionStartTime: string,
+  user: User
+}

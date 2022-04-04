@@ -6,6 +6,7 @@ import {User} from "../../shared/interfaces";
 import {LocalstorageKeys} from "../../global/constants/localstorage-keys";
 import {UserService} from "../../global/services/user.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {StoreService} from "../../global/services/store.service";
 
 @Component({
   selector: 'app-sign-in',
@@ -16,7 +17,12 @@ export class SignInComponent implements OnInit{
   @Output() onChanged = new EventEmitter<void>();
   form: FormGroup = this.initForm()
 
-  constructor(private readonly localStorageService: LocalStorageService, private userService: UserService, private route: ActivatedRoute, private router: Router) {
+  constructor(private readonly localStorageService: LocalStorageService,
+              private userService: UserService,
+              private route: ActivatedRoute,
+              private router: Router,
+              private storeService: StoreService
+              ) {
   }
 
   ngOnInit() {
@@ -38,6 +44,7 @@ export class SignInComponent implements OnInit{
 
     if (user?.password === this.form.value.password) {
       this.userService.initSession(user!)
+      this.storeService.initUserState()
       this.router.navigate(['select-hero'])
     } else {
       alert('Invalid email or password')

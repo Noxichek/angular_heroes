@@ -1,5 +1,4 @@
 
-
 header {
   margin: 0;
   background-color: blueviolet;
@@ -29,11 +28,11 @@ header h1{
   background-color: blueviolet; /* Green */
   color: white;
 }
-
-.sig-in-form {
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 60vh;
+  margin-top: 5%;
 }
+
+
