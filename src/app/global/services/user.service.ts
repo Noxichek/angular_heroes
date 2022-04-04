@@ -4,7 +4,6 @@ import {BehaviorSubject, Observable} from "rxjs";
 import {User, UserSession} from "../../shared/interfaces";
 import {addHoursToDate} from "../../shared/helpers/helper";
 import {LocalstorageKeys} from "../constants/localstorage-keys";
-import {StoreService} from "./store.service";
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +28,8 @@ export class UserService {
     const userSession = localStorageService.getData<UserSession>(LocalstorageKeys.sessionKey);
 
     this.currentUser = userSession.user;
+
+    console.log(this.currentUser.userState?.recentSearch)
   }
 
   initSession(user: User): void {
@@ -62,4 +63,5 @@ export class UserService {
     })
     this.localStorageService.setData(LocalstorageKeys.usersKey, updatedUsers)
   }
+
 }

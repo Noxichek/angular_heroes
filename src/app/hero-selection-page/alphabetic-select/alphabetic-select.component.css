@@ -1,15 +1,18 @@
 .btn-letter {
   text-align: center;
-  border: 5px solid #ffc34f;
+  border: 3px solid #82589F;
   width: 35px;
   line-height: 30px;
   border-radius: 100%;
   display: inline-block;
   vertical-align: top;
+  transition: .5s;
 }
 
 .btn-letter:hover {
-  background-color: #888888;
+  background-color: #82589F;
+  border-color: black;
+  color: white;
 }
 
 li {

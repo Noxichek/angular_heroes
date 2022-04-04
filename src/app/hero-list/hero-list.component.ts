@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Hero} from "../shared/interfaces";
 
 @Component({
   selector: 'app-hero-list',

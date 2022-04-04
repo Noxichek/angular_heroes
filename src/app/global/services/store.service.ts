@@ -21,7 +21,6 @@ export class StoreService {
   initUserState() {
     if(this.userService.currentUser?.userState) {
       this.userState = this.userService.currentUser.userState;
-      console.log(this.userState)
     }
   }
 

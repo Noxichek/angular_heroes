@@ -7,8 +7,11 @@
 .hero-info {
   display: flex;
   justify-content: space-between;
-  border: 1px solid black;
+  border: 5px solid black;
   margin-bottom: 10px;
+  border-radius: 15px;
+  border-color: #82589F;
+  background-color: hsla(314, 100%, 31%, .1);
 }
 
 input {
@@ -38,6 +41,7 @@ img {
   height: 300px;
   width: 200px;
   margin: 10px;
+  border: 2px solid #82589F;
 }
 
 .name-avatar {
@@ -55,6 +59,7 @@ h3 {
 .stats {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   font-size: 30px;
 

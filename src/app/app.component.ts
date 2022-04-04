@@ -1,7 +1,8 @@
-import {Component, OnDestroy} from '@angular/core';
+import {Component} from '@angular/core';
 import {LocalStorageService} from "./global/services/local-storage.service";
 import {Router} from "@angular/router";
 import {UserService} from "./global/services/user.service";
+import {StoreService} from "./global/services/store.service";
 
 
 @Component({
@@ -13,6 +14,7 @@ export class AppComponent {
   constructor(private localStorageService: LocalStorageService,
               private router: Router,
               public userService: UserService,
+              private storeService: StoreService
   ) {
   }
 
