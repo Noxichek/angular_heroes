@@ -11,6 +11,7 @@
     </ng-container>
   </div>
   <div class="btn-select">
+    <a [routerLink]="['/hero-info', hero.id]"><button (click)="goToHeroInfo()">View Info</button></a>
     <button class="select-hero-button" (click)="addToSelectedHeroes()" *ngIf="!hero.isSelected">Select</button>
     <button (click)="unselectHeroFromList()" *ngIf="hero.isSelected">Unselect</button>
   </div>

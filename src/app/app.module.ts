@@ -17,6 +17,9 @@ import { PowerupsComponent } from './user-info-page/powerups/powerups.component'
 import { HeroListComponent } from './hero-list/hero-list.component';
 import { HeroCardComponent } from './hero-card/hero-card.component';
 import {UserInfoRouterModule} from "./user-info-page/user-info-router/user-info-router.module";
+import { FightPageComponent } from './fight-page/fight-page.component';
+import { LoadingComponent } from './fight-page/loading/loading.component';
+import { HeroInfoComponent } from './hero-info/hero-info.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import {UserInfoRouterModule} from "./user-info-page/user-info-router/user-info-
     HistoryComponent,
     PowerupsComponent,
     HeroListComponent,
-    HeroCardComponent
+    HeroCardComponent,
+    FightPageComponent,
+    LoadingComponent,
+    HeroInfoComponent
   ],
   imports: [
     BrowserModule,

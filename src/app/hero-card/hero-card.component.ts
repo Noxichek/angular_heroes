@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Hero} from "../shared/interfaces";
 import {StoreService, UserStateKeys} from "../global/services/store.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-hero-card',
@@ -8,9 +9,14 @@ import {StoreService, UserStateKeys} from "../global/services/store.service";
   styleUrls: ['./hero-card.component.scss']
 })
 export class HeroCardComponent {
-  @Input() hero: Hero = {} as Hero
+  @Input() hero: Hero = {} as Hero;
+  id!: number;
 
-  constructor(private storeService: StoreService) {
+  constructor(private storeService: StoreService,
+              private activateRoute: ActivatedRoute,
+              private router: Router
+              ) {
+    this.id = this.hero.id
   }
 
 
@@ -23,5 +29,9 @@ export class HeroCardComponent {
   unselectHeroFromList() {
     this.hero.isSelected = false
     this.storeService.removeHeroById(this.hero.id)
+  }
+
+  goToHeroInfo() {
+    this.router.navigate(['hero-info'])
   }
 }

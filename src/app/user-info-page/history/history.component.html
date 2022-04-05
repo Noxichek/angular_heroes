@@ -1,1 +1,16 @@
-<p>history works!</p>
+<div class="container">
+  <ul class="responsive-table">
+    <li class="table-header">
+      <div class="col col-1">Date</div>
+      <div class="col col-2">My Hero Name</div>
+      <div class="col col-3">Opponent name</div>
+      <div class="col col-4">Result</div>
+    </li>
+    <li class="table-row" *ngFor="let value of storeService.userState.battleHistory.reverse()">
+      <div class="col col-1" data-label="Job Id">{{ value.date | date: 'dd MMMM y, HH:mm' }}</div>
+      <div class="col col-2" data-label="Customer Name">{{ value.myHero }}</div>
+      <div class="col col-3" data-label="Amount">{{ value.enemyHero }}</div>
+      <div [ngStyle]="{color: value.winner === 'Win' ? 'green' : 'red'}" class="col col-4" data-label="Payment Status">{{ value.winner }}</div>
+    </li>
+  </ul>
+</div>

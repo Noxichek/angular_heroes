@@ -15,9 +15,10 @@ const routes: Routes = [
     children: [
       {path: 'heroes', component: HeroesComponent},
       {path: 'history', component: HistoryComponent},
-      {path: 'powerups', component: PowerupsComponent}
+      {path: 'powerups', component: PowerupsComponent},
     ],
   },
+  {path:'**', redirectTo:'/select-hero'}
 ]
 
 @NgModule({

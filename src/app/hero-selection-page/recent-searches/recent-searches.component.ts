@@ -13,11 +13,6 @@ export class RecentSearchesComponent {
 
   }
 
-
-  // filterSearch() {
-  //   return Array.from(new Set(this.storeService.userState.recentSearch))
-  // }
-
   filterSearch() {
     const arr = this.storeService.userState.recentSearch
     const newArr = arr.map(el => el.trim())

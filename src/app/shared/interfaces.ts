@@ -55,3 +55,70 @@ export interface CurrentSession {
   sessionStartTime: string,
   user: User
 }
+
+export interface Powerup {
+  id: number,
+  name: string,
+  image: string,
+  stats: string,
+  usesLeft: number,
+  selected: boolean,
+  statsValue: number
+}
+
+export const powerups: Powerup[] = [
+  {
+    id: 0,
+    name: 'Glimmer Cape',
+    image: 'https://courier.spectral.gg/images/dota/profile_badges/glimmer_cape.png?size=!source',
+    stats: 'Intelligence +10',
+    usesLeft: 5,
+    selected: false,
+    statsValue: 10
+  },
+  {
+    id: 1,
+    name: 'Black King Bar',
+    image: 'https://courier.spectral.gg/images/dota/profile_badges/black_king_bar.png?size=!source',
+    stats: 'Combat +10',
+    usesLeft: 5,
+    selected: false,
+    statsValue: 10
+  },
+  {
+    id: 2,
+    name: 'Phase Boots',
+    image: 'https://courier.spectral.gg/images/dota/profile_badges/phase_boots.png?size=!source',
+    stats: 'Speed +10',
+    usesLeft: 5,
+    selected: false,
+    statsValue: 10
+  },
+  {
+    id: 3,
+    name: 'Heart Of Tarrasque',
+    image: 'https://courier.spectral.gg/images/dota/profile_badges/heart.png?size=!source',
+    stats: 'Strength +10',
+    usesLeft: 5,
+    selected: false,
+    statsValue: 10
+  },
+  {
+    id: 4,
+    name: 'Octarine Core',
+    image: 'https://courier.spectral.gg/images/dota/profile_badges/octarine_core.png?size=!source',
+    stats: 'Durability +10',
+    usesLeft: 5,
+    selected: false,
+    statsValue: 10
+  },
+  {
+    id: 5,
+    name: 'Mjollnir',
+    image: 'https://courier.spectral.gg/images/dota/profile_badges/mjollnir.png?size=!source',
+    stats: 'Power +10',
+    usesLeft: 5,
+    selected: false,
+    statsValue: 10
+  }
+]

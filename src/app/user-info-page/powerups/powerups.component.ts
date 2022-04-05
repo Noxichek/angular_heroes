@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Powerup, powerups} from "../../shared/interfaces";
+import {StoreService, UserStateKeys} from "../../global/services/store.service";
 
 @Component({
   selector: 'app-powerups',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./powerups.component.css']
 })
 export class PowerupsComponent implements OnInit {
+  powerups!: Powerup[]
 
-  constructor() { }
+  constructor(private storeService: StoreService) {
+  }
 
   ngOnInit(): void {
+    this.storeService.changeUserState(UserStateKeys.Powerups, powerups)
+    this.powerups = powerups
   }
+
 
 }

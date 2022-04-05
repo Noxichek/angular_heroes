@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {UserService} from "./user.service";
 import {Hero} from "../../shared/interfaces";
-import {LocalStorageService} from "./local-storage.service";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +14,7 @@ export class StoreService {
     recentSearch: []
   }
 
-  constructor(private userService: UserService, private localStorageService: LocalStorageService) {
+  constructor(private userService: UserService) {
     this.initUserState()
   }
 
@@ -29,7 +28,6 @@ export class StoreService {
     this.userState = {...this.userState, [key]:value}
     this.userService.setHeroesToStorage(this.userState)
     this.userService.updateSession(this.userState)
-    console.log(this.userState)
   }
 
   patchUserState<T>(key: UserStateKeys, value: T): void {
@@ -40,6 +38,7 @@ export class StoreService {
       this.userState = {...this.userState, [key]:[...prop, value]}
     }
     this.userService.setHeroesToStorage(this.userState)
+    this.userService.updateSession(this.userState)
   }
 
   getFromUserState(key: UserStateKeys): any {
