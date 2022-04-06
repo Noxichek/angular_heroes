@@ -63,7 +63,9 @@ export interface Powerup {
   stats: string,
   usesLeft: number,
   selected: boolean,
-  statsValue: number
+  statsValue: number,
+  statName: string,
+  isActive: boolean
 }
 
 export const powerups: Powerup[] = [
@@ -74,7 +76,9 @@ export const powerups: Powerup[] = [
     stats: 'Intelligence +10',
     usesLeft: 5,
     selected: false,
-    statsValue: 10
+    statsValue: 10,
+    statName: 'intelligence',
+    isActive: true
   },
   {
     id: 1,
@@ -83,7 +87,9 @@ export const powerups: Powerup[] = [
     stats: 'Combat +10',
     usesLeft: 5,
     selected: false,
-    statsValue: 10
+    statsValue: 10,
+    statName: 'combat',
+    isActive: true
   },
   {
     id: 2,
@@ -92,7 +98,9 @@ export const powerups: Powerup[] = [
     stats: 'Speed +10',
     usesLeft: 5,
     selected: false,
-    statsValue: 10
+    statsValue: 10,
+    statName: 'speed',
+    isActive: true
   },
   {
     id: 3,
@@ -101,7 +109,9 @@ export const powerups: Powerup[] = [
     stats: 'Strength +10',
     usesLeft: 5,
     selected: false,
-    statsValue: 10
+    statsValue: 10,
+    statName: 'strength',
+    isActive: true
   },
   {
     id: 4,
@@ -110,7 +120,9 @@ export const powerups: Powerup[] = [
     stats: 'Durability +10',
     usesLeft: 5,
     selected: false,
-    statsValue: 10
+    statsValue: 10,
+    statName: 'durability',
+    isActive: true
   },
   {
     id: 5,
@@ -119,6 +131,17 @@ export const powerups: Powerup[] = [
     stats: 'Power +10',
     usesLeft: 5,
     selected: false,
-    statsValue: 10
+    statsValue: 10,
+    statName: 'power',
+    isActive: true
   }
 ]
+
+export interface Battle {
+  winner: string,
+  date: Date,
+  myHero: string,
+  enemyHero: string,
+  myHeroId: string,
+  enemyHeroId: string
+}

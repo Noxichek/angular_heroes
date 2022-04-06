@@ -1,13 +1,13 @@
 <div class="container" *ngIf="enemyHero">
 
   <div class="hero">
-    <div class="name">{{myHero.name}}</div>
+    <div routerLink="/hero-info/{{myHero.id}}" class="name">{{myHero.name}}</div>
     <div class="full-name">{{myHero.biography["full-name"]}}</div>
     <div class="avatar">
       <img src="{{myHero.image.url}}">
     </div>
     <div class="stats">
-      <ng-container *ngFor="let stat of myHero.powerstats | keyvalue">
+      <ng-container *ngFor="let stat of myheroPowerstats | keyvalue">
               <span *ngIf="stat.value !== 'null'">
                 {{ stat.key }}: {{ stat.value }}
               </span>
@@ -24,13 +24,16 @@
     </div>
     <div class="powerups">
       <h3>PowerUps</h3>
+      <div *ngFor="let value of this.powerups">
+        <button *ngIf="isPowerupActiveInCurrentFight[value.statName] && value.usesLeft" (click)="addPowerups(value.statName)">{{value.name}}, {{value.stats}}</button>
+      </div>
     </div>
     <app-loading *ngIf="isFightNow"></app-loading>
   </div>
 
 
   <div class="hero">
-    <div class="name">{{enemyHero.name}}</div>
+    <div routerLink="/hero/{{enemyHero.id}}" class="name">{{enemyHero.name}}</div>
     <div class="full-name">{{enemyHero.biography["full-name"]}}</div>
     <div class="avatar">
       <img src="{{enemyHero.image.url}}">
@@ -45,3 +48,6 @@
   </div>
 
 </div>
+<!--<app-modal-window *ngIf="isBattleOver"></app-modal-window>-->
+
+

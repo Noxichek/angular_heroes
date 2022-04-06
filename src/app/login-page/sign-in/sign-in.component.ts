@@ -2,18 +2,18 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {Validators} from 'src/app/shared/validators/validators';
 import {LocalStorageService} from "../../global/services/local-storage.service";
-import {User} from "../../shared/interfaces";
+import {powerups, User} from "../../shared/interfaces";
 import {LocalstorageKeys} from "../../global/constants/localstorage-keys";
 import {UserService} from "../../global/services/user.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {StoreService} from "../../global/services/store.service";
+import {StoreService, UserStateKeys} from "../../global/services/store.service";
 
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss']
 })
-export class SignInComponent implements OnInit{
+export class SignInComponent implements OnInit {
   @Output() onChanged = new EventEmitter<void>();
   form: FormGroup = this.initForm()
 
@@ -22,17 +22,17 @@ export class SignInComponent implements OnInit{
               private route: ActivatedRoute,
               private router: Router,
               private storeService: StoreService
-              ) {
+  ) {
   }
 
   ngOnInit() {
-      this.route.queryParams.subscribe(p => {
-        if(p['expired']==='false') {
-          alert('Your current session has expired. Please login\n' +
-            'again to continue using this app!')
-        }
-      })
-    }
+    this.route.queryParams.subscribe(p => {
+      if (p['expired'] === 'false') {
+        alert('Your current session has expired. Please login\n' +
+          'again to continue using this app!')
+      }
+    })
+  }
 
 
   createNewUser(): void {
@@ -46,10 +46,12 @@ export class SignInComponent implements OnInit{
       this.userService.initSession(user!)
       this.storeService.initUserState()
       this.router.navigate(['select-hero'])
+      if (this.storeService.userState[UserStateKeys.Powerups].length === 0) {
+        this.storeService.changeUserState(UserStateKeys.Powerups, powerups)
+      }
     } else {
       alert('Invalid email or password')
     }
-
   }
 
 

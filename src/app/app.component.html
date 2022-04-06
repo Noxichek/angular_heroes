@@ -1,16 +1,17 @@
-<header>
-  <a routerLink="select-hero"><h1>Heroes Battle</h1></a>
-  <button class="btn"
-          *ngIf="!userService.isSessionActive()"
-  >Login
-  </button>
+<div class="main">
+  <header>
+    <a routerLink="select-hero"><h1>Heroes Battle</h1></a>
+    <button class="btn"
+            *ngIf="!userService.isSessionActive()"
+    >Login
+    </button>
 
-  <button class="btn" (click)="logout()" *ngIf="userService.isSessionActive()">Logout</button>
-  <button class="btn" (click)="navigateToUserInfo()" *ngIf="userService.isSessionActive()">User</button>
-  <button class="btn" routerLink="battle" *ngIf="userService.isSessionActive()">FIGHT</button>
-</header>
+    <button class="btn" (click)="logout()" *ngIf="userService.isSessionActive()">Logout</button>
+    <button class="btn" (click)="navigateToUserInfo()" *ngIf="userService.isSessionActive()">User</button>
+    <button class="btn" routerLink="battle" *ngIf="userService.isSessionActive() && storeService.userState.selectedHeroes.length">FIGHT</button>
+  </header>
 
-<div class="container">
-  <router-outlet></router-outlet>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
 </div>
-

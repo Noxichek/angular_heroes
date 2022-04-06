@@ -14,8 +14,7 @@ export class PowerupsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.storeService.changeUserState(UserStateKeys.Powerups, powerups)
-    this.powerups = powerups
+    this.powerups = this.storeService.userState[UserStateKeys.Powerups]
   }
 
 

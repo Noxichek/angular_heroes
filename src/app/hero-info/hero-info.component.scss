@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  height: 100%;
+  border: 3px solid #82589F;
+
+  img{
+    width: 40%;
+    height: 40%;
+    border: 3px solid #82589F;
+    margin: 5% 0 5% 0;
+  }
+}
+
+.hero-info {
+  margin-left: 5%;
+  width: 80em;
+
+  p{
+    margin-top: 1%;
+  }
+  span{
+    font-size: 25px;
+  }
+}

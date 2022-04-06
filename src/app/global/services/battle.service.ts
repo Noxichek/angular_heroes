@@ -48,6 +48,7 @@ export class BattleService {
       myHeroStats[0] = 0
       return myHeroStats.reduce((el, acc) => el + acc, 0)
     }
+
   }
 
 }

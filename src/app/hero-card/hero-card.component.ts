@@ -23,15 +23,15 @@ export class HeroCardComponent {
   addToSelectedHeroes() {
     this.storeService.changeUserState<Hero>(UserStateKeys.SelectedHero, {...this.hero, isSelected: true});
     this.storeService.patchUserState<Hero>(UserStateKeys.SelectedHeroes, {...this.hero, isSelected: true});
-    this.hero.isSelected = true
+    this.hero.isSelected = true;
   }
 
   unselectHeroFromList() {
-    this.hero.isSelected = false
-    this.storeService.removeHeroById(this.hero.id)
+    this.hero.isSelected = false;
+    this.storeService.removeHeroById(this.hero.id);
   }
 
   goToHeroInfo() {
-    this.router.navigate(['hero-info'])
+    this.router.navigate(['hero-info']);
   }
 }

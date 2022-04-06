@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {UserService} from "./user.service";
-import {Hero} from "../../shared/interfaces";
+import {Battle, Hero, Powerup} from "../../shared/interfaces";
 
 @Injectable({
   providedIn: 'root'
@@ -84,7 +84,7 @@ export enum UserStateKeys {
 export interface UserState {
   [UserStateKeys.SelectedHeroes]: any,
   [UserStateKeys.SelectedHero]: Hero,
-  [UserStateKeys.BattleHistory]: any[],
-  [UserStateKeys.Powerups]: any[],
+  [UserStateKeys.BattleHistory]: Battle [],
+  [UserStateKeys.Powerups]: Powerup [],
   [UserStateKeys.RecentSearch]: any[]
 }

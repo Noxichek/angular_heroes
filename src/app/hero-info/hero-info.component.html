@@ -1,8 +1,46 @@
-<div class="container">
+<div class="container" *ngIf="hero">
   <div class="avatar">
     <img src="{{hero.image.url}}" alt="">
   </div>
   <div class="hero-info">
-      <span></span>
+      <h1>{{hero.name}}</h1>
+      <div class="stats">
+        <span>Stats: </span>
+        <p *ngIf="hero.powerstats['intelligence']!=='null'">Intelligence: {{hero.powerstats['intelligence']}}</p>
+        <p *ngIf="hero.powerstats['strength']!=='null'">Strength: {{hero.powerstats['strength']}}</p>
+        <p *ngIf="hero.powerstats['speed']!=='null'">Speed: {{hero.powerstats['speed']}}</p>
+        <p *ngIf="hero.powerstats['durability']!=='null'">Durability: {{hero.powerstats['durability']}}</p>
+        <p *ngIf="hero.powerstats['power']!=='null'">Power: {{hero.powerstats['power']}}</p>
+        <p *ngIf="hero.powerstats['combat']!=='null'">Combat: {{hero.powerstats['combat']}}</p>
+      </div>
+    <div class="biography">
+      <span>Biography: </span>
+      <p>Full name: {{hero.biography['full-name']}}</p>
+      <p>Alter-egos: {{hero.biography['alter-egos']}}</p>
+      <p>Aliases: {{hero.biography['aliases']}}</p>
+      <p>Place of birth: {{hero.biography['place-of-birth']}}</p>
+      <p>First appearance: {{hero.biography['first-appearance']}}</p>
+      <p>Publisher: {{hero.biography['publisher']}}</p>
+      <p>Alignment: {{hero.biography['alignment']}}</p>
+    </div>
+    <div class="appearance">
+      <span>Appearance: </span>
+      <p>Gender: {{hero.appearance['gender']}}</p>
+      <p>Race: {{hero.appearance['race']}}</p>
+      <p>Height: {{hero.appearance['height'][1]}}</p>
+      <p>Weight: {{hero.appearance['weight'][1]}}</p>
+      <p>Eye color: {{hero.appearance['eye-color']}}</p>
+      <p>Hair color: {{hero.appearance['hair-color']}}</p>
+    </div>
+    <div class="work">
+      <span>Work: </span>
+      <p>Occupation: {{hero.work['occupation']}}</p>
+      <p>Base: {{hero.work['base']}}</p>
+    </div>
+    <div class="connections">
+      <span>Connections: </span>
+      <p>Group affiliation: {{hero.connections['group-affiliation']}}</p>
+      <p>Relatives: {{hero.connections['relatives']}}</p>
+    </div>
   </div>
 </div>

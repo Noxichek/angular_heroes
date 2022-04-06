@@ -3,6 +3,7 @@
   border:3px solid #82589F;
   font-size: 20px;
   margin-bottom: 20px;
+  position: relative;
 }
 
 .hero {
@@ -60,11 +61,19 @@
   }
 
   .powerups {
+    height: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    button {
+      width: 100%;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
   }
+
 }
 
 button {

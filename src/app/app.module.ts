@@ -20,6 +20,8 @@ import {UserInfoRouterModule} from "./user-info-page/user-info-router/user-info-
 import { FightPageComponent } from './fight-page/fight-page.component';
 import { LoadingComponent } from './fight-page/loading/loading.component';
 import { HeroInfoComponent } from './hero-info/hero-info.component';
+import { SortPipe } from './shared/sort.pipe';
+import { ModalWindowComponent } from './fight-page/modal-window/modal-window.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { HeroInfoComponent } from './hero-info/hero-info.component';
     HeroCardComponent,
     FightPageComponent,
     LoadingComponent,
-    HeroInfoComponent
+    HeroInfoComponent,
+    SortPipe,
+    ModalWindowComponent
   ],
   imports: [
     BrowserModule,

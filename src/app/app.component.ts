@@ -14,7 +14,7 @@ export class AppComponent {
   constructor(private localStorageService: LocalStorageService,
               private router: Router,
               public userService: UserService,
-              private storeService: StoreService
+              public storeService: StoreService
   ) {
   }
 
@@ -30,4 +30,5 @@ export class AppComponent {
       this.router.navigate(['user-info'])
     }
   }
+
 }
