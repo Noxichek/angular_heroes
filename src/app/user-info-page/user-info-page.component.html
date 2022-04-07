@@ -1,11 +1,11 @@
-<div class="middle">
-  <button routerLink="heroes" routerLinkActive="selected" class="btn1 btn-user-page">Heroes</button>
-  <button routerLink="history" routerLinkActive="selected" class="btn-user-page">Battle History</button>
-  <button routerLink="powerups" routerLinkActive="selected" class="btn-user-page">PowerUps</button>
+<div class="main">
+  <div class="middle">
+    <button routerLink="heroes" routerLinkActive="selected" class="btn1 btn-user-page">Heroes</button>
+    <button routerLink="history" routerLinkActive="selected" class="btn-user-page">Battle History</button>
+    <button routerLink="powerups" routerLinkActive="selected" class="btn-user-page">PowerUps</button>
+  </div>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
 </div>
-
-<div class="content">
-  <router-outlet></router-outlet>
-</div>
-
-

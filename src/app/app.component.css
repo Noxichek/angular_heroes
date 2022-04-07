@@ -14,6 +14,7 @@ header {
 header h1{
   margin-left: 20px;
   color: white;
+  width: 14%;
 }
 
 .btn {
@@ -34,13 +35,22 @@ header h1{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 5%;
+  margin-top: 1%;
   position: relative;
+  height: 91.5vh;
 }
 
 .main {
   background-color: #dcdde1;
   height: auto;
+  overflow: auto;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 3%;
 }
 
 

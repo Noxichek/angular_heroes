@@ -2,7 +2,7 @@ import {Validators as AngularValidators} from "@angular/forms";
 
 export class Validators {
   static get email() {
-    return  [
+    return [
       AngularValidators.required,
       AngularValidators.email,
       AngularValidators.pattern(/^\w*\.?\w*\.?\w*\.?\w*@\w{1,5}\.(com|net|org|co|us)$/)

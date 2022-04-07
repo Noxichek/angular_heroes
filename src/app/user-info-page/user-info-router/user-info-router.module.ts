@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {UserInfoPageComponent} from "../user-info-page.component";
 import {LoginGuardService} from "../../login-page/guard/login-guard.service";
@@ -18,7 +18,7 @@ const routes: Routes = [
       {path: 'powerups', component: PowerupsComponent},
     ],
   },
-  {path:'**', redirectTo:'/select-hero'}
+  {path: '**', redirectTo: '/select-hero'}
 ]
 
 @NgModule({
@@ -28,4 +28,5 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ]
 })
-export class UserInfoRouterModule { }
+export class UserInfoRouterModule {
+}

@@ -48,7 +48,7 @@ export interface Hero {
 }
 
 export interface HeroPowerstats {
-  [key: string] : string
+  [key: string]: string
 }
 
 export interface CurrentSession {

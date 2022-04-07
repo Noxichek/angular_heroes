@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import {StoreService, UserStateKeys} from "../../global/services/store.service";
+import {StoreService} from "../../global/services/store.service";
 
 @Component({
   selector: 'app-recent-searches',
@@ -19,7 +19,7 @@ export class RecentSearchesComponent {
     return Array.from(new Set(newArr))
   }
 
-  adToSearch(el: HTMLButtonElement) {
+  addToSearch(el: HTMLButtonElement) {
     this.value.emit(el.innerText)
   }
 }

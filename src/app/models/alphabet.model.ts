@@ -26,8 +26,6 @@ export type Letter =
   | 'y'
   | 'z';
 
-
-
 export const letters: Letter[] = [
   'a',
   'b',

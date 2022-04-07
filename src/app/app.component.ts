@@ -18,7 +18,6 @@ export class AppComponent {
   ) {
   }
 
-
   logout() {
     this.localStorageService.removeData('currentSession')
     this.router.navigate(['login'])
@@ -27,8 +26,7 @@ export class AppComponent {
 
   navigateToUserInfo() {
     if (this.userService.isSessionActive()) {
-      this.router.navigate(['user-info'])
+      this.router.navigate(['user-info/heroes'])
     }
   }
-
 }

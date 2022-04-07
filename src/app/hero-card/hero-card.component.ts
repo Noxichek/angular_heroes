@@ -15,10 +15,9 @@ export class HeroCardComponent {
   constructor(private storeService: StoreService,
               private activateRoute: ActivatedRoute,
               private router: Router
-              ) {
+  ) {
     this.id = this.hero.id
   }
-
 
   addToSelectedHeroes() {
     this.storeService.changeUserState<Hero>(UserStateKeys.SelectedHero, {...this.hero, isSelected: true});

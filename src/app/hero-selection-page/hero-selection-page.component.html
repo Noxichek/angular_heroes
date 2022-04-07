@@ -9,7 +9,10 @@
       [(ngModel)]="searchValue"
       [pattern]="'^[a-zA-Z ]*$'"
     >
-    <app-recent-searches (value)="addValueToInput($event)" *ngIf="this.storeService.userState.recentSearch.length !== 0"></app-recent-searches>
+    <app-recent-searches
+      (value)="addValueToInput($event)"
+      *ngIf="this.storeService.userState.recentSearch.length !== 0">
+    </app-recent-searches>
     <app-hero-list [heroes]="heroes"></app-hero-list>
   </div>
 </div>

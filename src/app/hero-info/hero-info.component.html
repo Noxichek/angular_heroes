@@ -3,16 +3,16 @@
     <img src="{{hero.image.url}}" alt="">
   </div>
   <div class="hero-info">
-      <h1>{{hero.name}}</h1>
-      <div class="stats">
-        <span>Stats: </span>
-        <p *ngIf="hero.powerstats['intelligence']!=='null'">Intelligence: {{hero.powerstats['intelligence']}}</p>
-        <p *ngIf="hero.powerstats['strength']!=='null'">Strength: {{hero.powerstats['strength']}}</p>
-        <p *ngIf="hero.powerstats['speed']!=='null'">Speed: {{hero.powerstats['speed']}}</p>
-        <p *ngIf="hero.powerstats['durability']!=='null'">Durability: {{hero.powerstats['durability']}}</p>
-        <p *ngIf="hero.powerstats['power']!=='null'">Power: {{hero.powerstats['power']}}</p>
-        <p *ngIf="hero.powerstats['combat']!=='null'">Combat: {{hero.powerstats['combat']}}</p>
-      </div>
+    <h1>{{hero.name}}</h1>
+    <div class="stats">
+      <span>Stats: </span>
+      <p *ngIf="hero.powerstats['intelligence']!=='null'">Intelligence: {{hero.powerstats['intelligence']}}</p>
+      <p *ngIf="hero.powerstats['strength']!=='null'">Strength: {{hero.powerstats['strength']}}</p>
+      <p *ngIf="hero.powerstats['speed']!=='null'">Speed: {{hero.powerstats['speed']}}</p>
+      <p *ngIf="hero.powerstats['durability']!=='null'">Durability: {{hero.powerstats['durability']}}</p>
+      <p *ngIf="hero.powerstats['power']!=='null'">Power: {{hero.powerstats['power']}}</p>
+      <p *ngIf="hero.powerstats['combat']!=='null'">Combat: {{hero.powerstats['combat']}}</p>
+    </div>
     <div class="biography">
       <span>Biography: </span>
       <p>Full name: {{hero.biography['full-name']}}</p>

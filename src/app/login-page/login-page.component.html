@@ -1,5 +1,10 @@
 <app-sign-in (onChanged)="changeView()" *ngIf="isSignInView"></app-sign-in>
-
 <app-create-new-account (onChanged)="changeView()" *ngIf="!isSignInView"></app-create-new-account>
+<div *ngIf="this.expired" class="modal-message">
+  <div class="message">
+    Your current session has expired. Please login again to continue using this app!
+  </div>
+  <button (click)="this.expired = false">Close</button>
+</div>
 
 

@@ -17,18 +17,9 @@ export class CreateNewAccountComponent {
   constructor(private readonly localStorageService: LocalStorageService) {
   }
 
-
   switchToLogin(): void {
     this.createForm.reset();
   };
-
-  private initForm(): FormGroup {
-    return new FormGroup({
-      username: new FormControl('', Validators.username),
-      email: new FormControl('', Validators.email),
-      password: new FormControl(null, Validators.password)
-    })
-  }
 
   createNewUser(): void {
     if (this.checkIfEmailExist()) {
@@ -42,7 +33,7 @@ export class CreateNewAccountComponent {
     }
   }
 
-  checkIfEmailExist(): boolean {
+  private checkIfEmailExist(): boolean {
     const users = this.localStorageService.getData<User[]>(LocalstorageKeys.usersKey) || []
     const customUserEmail = this.createForm.value.email
 
@@ -50,4 +41,13 @@ export class CreateNewAccountComponent {
       return user.email === customUserEmail
     })
   }
+
+  private initForm(): FormGroup {
+    return new FormGroup({
+      username: new FormControl('', Validators.username),
+      email: new FormControl('', Validators.email),
+      password: new FormControl(null, Validators.password)
+    })
+  }
+
 }

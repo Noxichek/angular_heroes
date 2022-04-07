@@ -11,7 +11,7 @@ export class BattleService {
   constructor(private storeService: StoreService) {
   }
 
-  letsFight(myHero: Hero, enemyHero: Hero): void {
+  letsFight(myHero: Hero, enemyHero: Hero) {
     const myHeroStats = this.calcStats(myHero.powerstats)
     const enemyHeroPowerStats = this.calcStats(enemyHero.powerstats)
 
@@ -24,7 +24,7 @@ export class BattleService {
         myHeroId: myHero.id,
         enemyHeroId: enemyHero.id
       })
-      alert(`${myHero.name} win this fight`)
+      return myHero.name
     } else if (myHeroStats < enemyHeroPowerStats) {
       this.storeService.patchUserState(UserStateKeys.BattleHistory, {
         winner: 'Loose',
@@ -34,9 +34,10 @@ export class BattleService {
         myHeroId: myHero.id,
         enemyHeroId: enemyHero.id
       })
-      alert(`${enemyHero.name} win this fight`)
+      return enemyHero.name
     } else {
       alert('Ooops, this fight doesn`t make sense!')
+      return ''
     }
   }
 

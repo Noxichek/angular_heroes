@@ -8,7 +8,7 @@
     </div>
     <div class="stats">
       <ng-container *ngFor="let stat of myheroPowerstats | keyvalue">
-              <span *ngIf="stat.value !== 'null'">
+              <span>
                 {{ stat.key }}: {{ stat.value }}
               </span>
       </ng-container>
@@ -47,7 +47,13 @@
     </div>
   </div>
 
+  <div class="modal" *ngIf="isBattleOver">
+    <div class="container">
+      <div class="message">{{this.winner}} win this fight</div>
+      <button (click)="isBattleOver = false">Close</button>
+    </div>
+  </div>
 </div>
-<!--<app-modal-window *ngIf="isBattleOver"></app-modal-window>-->
+
 
 

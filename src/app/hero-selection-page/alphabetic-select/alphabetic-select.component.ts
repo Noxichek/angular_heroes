@@ -6,16 +6,12 @@ import {Letter, letters} from "../../models/alphabet.model";
   templateUrl: './alphabetic-select.component.html',
   styleUrls: ['./alphabetic-select.component.css']
 })
-export class AlphabeticSelectComponent{
+export class AlphabeticSelectComponent {
   @Output() readonly letter = new EventEmitter<Letter>();
 
   selectedLetter: Letter = 'a';
   alphabet: Letter[] = letters;
   isOpen = false;
-
-  selectLetter(letter: Letter): void {
-    this.selectedLetter = letter
-  }
 
   onSelectClick(letter: Letter): void {
     this.selectedLetter = letter;
