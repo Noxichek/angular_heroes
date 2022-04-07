@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {environment} from "../../../environments/environment";
 import {map, Observable} from "rxjs";
-import {Hero} from "../../shared/interfaces";
+import {ApiUrl, Hero} from "../../shared/interfaces";
 
 type Response = {
   response: string;
@@ -13,7 +12,7 @@ type Response = {
   providedIn: 'root'
 })
 export class FetchService {
-  url: string = environment.apiUrl + environment.apiToken;
+  url: string = ApiUrl.apiUrl + ApiUrl.apiToken;
 
   constructor(private http: HttpClient) {
   }
