@@ -145,3 +145,8 @@ export interface Battle {
   myHeroId: string,
   enemyHeroId: string
 }
+
+export const ApiUrl = {
+  apiUrl: 'https://www.superheroapi.com/api.php/',
+  apiToken: '2246724375469588/'
+}
