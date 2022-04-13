@@ -7,7 +7,7 @@ import {StoreService} from "../../global/services/store.service";
   styleUrls: ['./recent-searches.component.css']
 })
 export class RecentSearchesComponent {
-  @Output() readonly value = new EventEmitter<any>();
+  @Output() readonly value = new EventEmitter();
 
   constructor(public storeService: StoreService) {
 
