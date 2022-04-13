@@ -9,7 +9,7 @@ import {StoreService} from "../../global/services/store.service";
 export class RecentSearchesComponent {
   @Output() readonly value = new EventEmitter();
 
-  constructor(public storeService: StoreService) {
+  constructor(private storeService: StoreService) {
 
   }
 
