@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {ApiUrl, Hero} from "../../shared/interfaces";
 
-type Response = {
+type HeroResponse = {
   response: string;
   results?: Hero[];
 };
@@ -18,8 +18,8 @@ export class FetchService {
   }
 
   getHeroesByName(name: string): Observable<Hero[]> {
-    return this.http.get<Response>(this.url + 'search/' + name).pipe(
-      map((response: Response) => {
+    return this.http.get<HeroResponse>(this.url + 'search/' + name).pipe(
+      map((response: HeroResponse) => {
         if (response.response === 'error') {
           return [] as Hero[];
         }
