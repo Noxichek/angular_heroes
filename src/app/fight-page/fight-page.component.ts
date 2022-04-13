@@ -1,16 +1,16 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Hero, Powerup} from "../shared/interfaces";
 import {StoreService, UserStateKeys} from "../global/services/store.service";
 import {FetchService} from "../global/services/fetch.service";
 import {BattleService} from "../global/services/battle.service";
-import {delay, of} from "rxjs";
+import {delay, of, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-fight-page',
   templateUrl: './fight-page.component.html',
   styleUrls: ['./fight-page.component.scss']
 })
-export class FightPageComponent implements OnInit {
+export class FightPageComponent implements OnInit, OnDestroy {
   myHero!: Hero;
   enemyHero!: Hero;
   isFightNow = false;
@@ -18,7 +18,9 @@ export class FightPageComponent implements OnInit {
   powerups!: Powerup[];
   isPowerupActiveInCurrentFight = {};
   isBattleOver: boolean = false;
-  winner: string = ''
+  winner: string = '';
+  enemyHeroSub: Subscription;
+  fightSub: Subscription;
 
   constructor(
     private storeService: StoreService,
@@ -37,7 +39,7 @@ export class FightPageComponent implements OnInit {
 
   fight(): void {
     this.isFightNow = true;
-    of('').pipe(delay(5000)).subscribe(() => {
+    this.fightSub = of('').pipe(delay(5000)).subscribe(() => {
       this.winner = this.battleService.letsFight(this.myHero, this.enemyHero)
       this.isFightNow = false
       this.myheroPowerstats = {...this.myHero.powerstats}
@@ -64,10 +66,14 @@ export class FightPageComponent implements OnInit {
   }
 
   private getEnemyHero(): void {
-    this.fetchService.getRandomHero().subscribe(randomHero => {
+    this.enemyHeroSub = this.fetchService.getRandomHero().subscribe(randomHero => {
       this.enemyHero = randomHero
     })
   }
 
 
+  ngOnDestroy(): void {
+    this.enemyHeroSub.unsubscribe()
+    this.fightSub.unsubscribe()
+  }
 }
