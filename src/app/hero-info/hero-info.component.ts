@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Hero} from "../shared/interfaces";
 import {FetchService} from "../global/services/fetch.service";
 import {ActivatedRoute} from "@angular/router";
+import {mergeMap} from "rxjs";
 
 @Component({
   selector: 'app-hero-info',
@@ -17,10 +18,10 @@ export class HeroInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      this.fetchService.getHeroById(params['id'])
-        .subscribe(response => this.hero = response)
-
-    })
+    this.route.params.pipe(
+      mergeMap(params => {
+        return this.fetchService.getHeroById(params['id']);
+      })
+    ).subscribe(response => this.hero = response);
   }
 }
