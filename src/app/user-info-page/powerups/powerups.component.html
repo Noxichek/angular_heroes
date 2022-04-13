@@ -1,0 +1,10 @@
+<div class="container" *ngFor="let value of powerups">
+  <div class="item item-intelligence">
+    <img src="{{value.image}}">
+    <div class="description">
+      <h3>{{value.name}}</h3>
+      <span>{{value.stats}}</span>
+      <span>Uses Left: {{value.usesLeft}}</span>
+    </div>
+  </div>
+</div>

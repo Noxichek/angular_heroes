@@ -1,0 +1,49 @@
+.form {
+  border: 2px solid gray;
+  width: 40vw;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 40px;
+  border-radius: 15px;
+}
+
+p {
+  font-size: 20px;
+}
+
+button {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  border: 1px solid #0000001f;
+  cursor: pointer;
+  padding: 0 15px;
+  margin: 5px;
+  box-shadow: 2px 2px 2px 2px #888888;
+  height: 40px;
+  border-radius: 15px;
+}
+
+button:hover {
+  background-color: darkgrey;
+}
+
+input {
+  height: 40px;
+  border-radius: 10px;
+  border-color: darkgray;
+
+&.ng-valid.ng-touched {
+   border-color: green;
+ }
+
+&.ng-invalid.ng-touched {
+   border-color: red;
+ }
+}
+
+small {
+  color: red;
+}
+

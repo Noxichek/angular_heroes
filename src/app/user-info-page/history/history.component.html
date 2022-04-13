@@ -1,0 +1,16 @@
+<div class="container">
+  <ul class="responsive-table">
+    <li class="table-header">
+      <div (click)="sortByDate()" class="col col-1">Date</div>
+      <div (click)="sortByName()" class="col col-2">My Hero Name</div>
+      <div (click)="sortByEnemyName()" class="col col-3">Opponent name</div>
+      <div (click)="sortByWinner()" class="col col-4">Result</div>
+    </li>
+    <li class="table-row" *ngFor="let value of battles">
+      <div class="col col-1" data-label="Job Id">{{ value.date | date: 'dd MMMM y, HH:mm' }}</div>
+      <div routerLink="/hero-info/{{value.myHeroId}}" class="col col-2" data-label="Customer Name">{{ value.myHero }}</div>
+      <div routerLink="/hero-info/{{value.enemyHeroId}}" class="col col-3" data-label="Amount">{{ value.enemyHero }}</div>
+      <div [ngStyle]="{color: value.winner === 'Win' ? 'green' : 'red'}" class="col col-4" data-label="Payment Status">{{ value.winner }}</div>
+    </li>
+  </ul>
+</div>
