@@ -12,7 +12,7 @@ export class HistoryComponent implements OnInit {
   battles: Battle[] = [];
   isSorted: boolean = true
 
-  constructor(public storeService: StoreService) {
+  constructor(private storeService: StoreService) {
   }
 
   ngOnInit(): void {
