@@ -9,4 +9,7 @@ import {Hero} from "../shared/interfaces";
 export class HeroListComponent {
   @Input() heroes: Array<Hero> = [];
 
+  trackByFn(index, hero) {
+    return hero.id
+  }
 }
