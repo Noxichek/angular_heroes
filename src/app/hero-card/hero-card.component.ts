@@ -36,4 +36,8 @@ export class HeroCardComponent implements OnInit {
   goToHeroInfo() {
     this.router.navigate(['hero-info']);
   }
+
+  trackByFn(hero) {
+    return hero.powerstats
+  }
 }
