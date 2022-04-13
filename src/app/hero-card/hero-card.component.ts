@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Hero, UserStateKeys} from "../shared/interfaces";
 import {StoreService} from "../global/services/store.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -8,7 +8,7 @@ import {ActivatedRoute, Router} from "@angular/router";
   templateUrl: './hero-card.component.html',
   styleUrls: ['./hero-card.component.scss']
 })
-export class HeroCardComponent {
+export class HeroCardComponent implements OnInit {
   @Input() hero: Hero = {} as Hero;
   id!: number;
 
@@ -16,6 +16,9 @@ export class HeroCardComponent {
               private activateRoute: ActivatedRoute,
               private router: Router
   ) {
+  }
+
+  ngOnInit(): void {
     this.id = this.hero.id
   }
 
