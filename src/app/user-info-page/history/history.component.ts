@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {StoreService, UserStateKeys} from "../../global/services/store.service";
-import {Battle} from "../../shared/interfaces";
+import {StoreService} from "../../global/services/store.service";
+import {Battle, UserStateKeys} from "../../shared/interfaces";
 
 @Component({
   selector: 'app-history',

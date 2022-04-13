@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
 import {FetchService} from "../global/services/fetch.service";
 import {Letter} from "../models/alphabet.model";
-import {StoreService, UserStateKeys} from "../global/services/store.service";
+import {StoreService} from "../global/services/store.service";
+import {UserStateKeys} from "../shared/interfaces";
 
 @Component({
   selector: 'app-hero-selection-page',

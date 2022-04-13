@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Hero, Powerup} from "../shared/interfaces";
-import {StoreService, UserStateKeys} from "../global/services/store.service";
+import {Hero, Powerup, UserStateKeys} from "../shared/interfaces";
+import {StoreService} from "../global/services/store.service";
 import {FetchService} from "../global/services/fetch.service";
 import {BattleService} from "../global/services/battle.service";
 import {delay, of, Subscription} from "rxjs";

@@ -2,11 +2,11 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {Validators} from 'src/app/shared/validators/validators';
 import {LocalStorageService} from "../../global/services/local-storage.service";
-import {powerups, User} from "../../shared/interfaces";
+import {powerups, User, UserStateKeys} from "../../shared/interfaces";
 import {LocalstorageKeys} from "../../global/constants/localstorage-keys";
 import {UserService} from "../../global/services/user.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {StoreService, UserStateKeys} from "../../global/services/store.service";
+import {StoreService} from "../../global/services/store.service";
 
 @Component({
   selector: 'app-sign-in',

@@ -1,5 +1,3 @@
-import {UserState} from "../global/services/store.service";
-
 export interface User {
   email: string,
   password: string,
@@ -149,4 +147,20 @@ export interface Battle {
 export const ApiUrl = {
   apiUrl: 'https://www.superheroapi.com/api.php/',
   apiToken: '2246724375469588/'
+}
+
+export enum UserStateKeys {
+  SelectedHeroes = 'selectedHeroes',
+  SelectedHero = 'selectedHero',
+  BattleHistory = 'battleHistory',
+  Powerups = 'powerups',
+  RecentSearch = 'recentSearch'
+}
+
+export interface UserState {
+  [UserStateKeys.SelectedHeroes]: any,
+  [UserStateKeys.SelectedHero]: Hero,
+  [UserStateKeys.BattleHistory]: Battle [],
+  [UserStateKeys.Powerups]: Powerup [],
+  [UserStateKeys.RecentSearch]: any[]
 }

@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {Hero} from "../shared/interfaces";
-import {StoreService, UserStateKeys} from "../global/services/store.service";
+import {Hero, UserStateKeys} from "../shared/interfaces";
+import {StoreService} from "../global/services/store.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
