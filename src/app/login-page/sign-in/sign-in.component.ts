@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {Validators} from 'src/app/shared/validators/validators';
 import {LocalStorageService} from "../../global/services/local-storage.service";
@@ -7,15 +7,17 @@ import {LocalstorageKeys} from "../../global/constants/localstorage-keys";
 import {UserService} from "../../global/services/user.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {StoreService} from "../../global/services/store.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss']
 })
-export class SignInComponent implements OnInit {
+export class SignInComponent implements OnInit, OnDestroy {
   @Output() onChanged = new EventEmitter<void>();
-  form: FormGroup = this.initForm()
+  form: FormGroup = this.initForm();
+  sub: Subscription;
 
   constructor(private readonly localStorageService: LocalStorageService,
               private userService: UserService,
@@ -26,7 +28,7 @@ export class SignInComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.queryParams.subscribe(p => {
+    this.sub = this.route.queryParams.subscribe(p => {
       if (p['expired'] === 'false') {
         alert('Your current session has expired. Please login\n' +
           'again to continue using this app!')
@@ -69,4 +71,7 @@ export class SignInComponent implements OnInit {
     return users.find(({email}) => email === customUserEmail)
   }
 
+  ngOnDestroy(): void {
+    this.sub.unsubscribe()
+  }
 }
