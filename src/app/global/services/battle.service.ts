@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
-import {Hero} from "../../shared/interfaces";
-import {StoreService, UserStateKeys} from "./store.service";
+import {Hero, UserStateKeys} from "../../shared/interfaces";
+import {StoreService} from "./store.service";
 
 @Injectable({
   providedIn: 'root'

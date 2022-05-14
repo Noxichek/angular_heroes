@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {StoreService, UserStateKeys} from "../../global/services/store.service";
-import {Battle} from "../../shared/interfaces";
+import {StoreService} from "../../global/services/store.service";
+import {Battle, UserStateKeys} from "../../shared/interfaces";
 
 @Component({
   selector: 'app-history',
@@ -12,7 +12,7 @@ export class HistoryComponent implements OnInit {
   battles: Battle[] = [];
   isSorted: boolean = true
 
-  constructor(public storeService: StoreService) {
+  constructor(private storeService: StoreService) {
   }
 
   ngOnInit(): void {

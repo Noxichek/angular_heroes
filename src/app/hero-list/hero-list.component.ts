@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {Hero} from "../shared/interfaces";
 
 @Component({
   selector: 'app-hero-list',
@@ -6,6 +7,9 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./hero-list.component.scss']
 })
 export class HeroListComponent {
-  @Input() heroes: Array<any> = [];
+  @Input() heroes: Array<Hero> = [];
 
+  trackByFn(index, hero) {
+    return hero.id
+  }
 }

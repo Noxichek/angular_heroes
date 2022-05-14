@@ -1,10 +1,9 @@
 import {Injectable} from '@angular/core';
 import {LocalStorageService} from "./local-storage.service";
 import {BehaviorSubject, Observable} from "rxjs";
-import {CurrentSession, User, UserSession} from "../../shared/interfaces";
+import {CurrentSession, User, UserSession, UserState} from "../../shared/interfaces";
 import {addHoursToDate} from "../../shared/helpers/helper";
 import {LocalstorageKeys} from "../constants/localstorage-keys";
-import {UserState} from "./store.service";
 
 @Injectable({
   providedIn: 'root'

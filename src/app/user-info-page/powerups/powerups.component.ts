@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Powerup, powerups} from "../../shared/interfaces";
-import {StoreService, UserStateKeys} from "../../global/services/store.service";
+import {Powerup, UserStateKeys} from "../../shared/interfaces";
+import {StoreService} from "../../global/services/store.service";
 
 @Component({
   selector: 'app-powerups',

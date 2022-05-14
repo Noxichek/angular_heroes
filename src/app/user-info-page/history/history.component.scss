@@ -2,6 +2,14 @@ body {
   font-family: 'lato', sans-serif;
 }
 
+.win {
+  color: green;
+}
+
+.loser {
+  color: red;
+}
+
 .container {
   max-width: 1000px;
   margin-left: auto;
@@ -35,9 +43,7 @@ h2 {
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.03em;
-    -webkit-box-shadow: 0px 5px 10px 15px rgba(34, 60, 80, 0.2);
-    -moz-box-shadow: 0px 5px 10px 15px rgba(34, 60, 80, 0.2);
-    box-shadow: 0px 5px 10px 15px rgba(34, 60, 80, 0.2);
+    box-shadow: 0 5px 10px 15px rgba(34, 60, 80, 0.2);
 
     .col {
       cursor: pointer;
@@ -46,12 +52,14 @@ h2 {
 
   .table-row {
     background-color: #ffffff;
-    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
-    .col-2, .col-3{
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.1);
+
+    .col-2, .col-3 {
       cursor: pointer;
       transition: .4s;
     }
-    .col-2:hover, .col-3:hover{
+
+    .col-2:hover, .col-3:hover {
       color: #82589F;
       font-size: 18px;
     }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {UserService} from "./user.service";
-import {Battle, Hero, Powerup} from "../../shared/interfaces";
+import {Hero, UserState, UserStateKeys} from "../../shared/interfaces";
 
 @Injectable({
   providedIn: 'root'
@@ -73,18 +73,3 @@ export class StoreService {
   }
 }
 
-export enum UserStateKeys {
-  SelectedHeroes = 'selectedHeroes',
-  SelectedHero = 'selectedHero',
-  BattleHistory = 'battleHistory',
-  Powerups = 'powerups',
-  RecentSearch = 'recentSearch'
-}
-
-export interface UserState {
-  [UserStateKeys.SelectedHeroes]: any,
-  [UserStateKeys.SelectedHero]: Hero,
-  [UserStateKeys.BattleHistory]: Battle [],
-  [UserStateKeys.Powerups]: Powerup [],
-  [UserStateKeys.RecentSearch]: any[]
-}
