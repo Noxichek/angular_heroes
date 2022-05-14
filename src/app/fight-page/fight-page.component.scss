@@ -109,6 +109,9 @@ button:hover {
   width: 100%;
   height: 100%;
   background-color: hsla(241, 10%, 31%, 0.7);
+  transition: 1s;
+  visibility: hidden;
+  opacity: 0;
 
   .container {
     display: flex;
@@ -116,6 +119,11 @@ button:hover {
     align-items: center;
     height: 100%;
     border: none;
+  }
+
+  &.visibility {
+    visibility: visible;
+    opacity: 1;
   }
 
   .message {
