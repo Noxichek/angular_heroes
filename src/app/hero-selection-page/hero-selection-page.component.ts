@@ -4,7 +4,7 @@ import {Letter} from "../models/alphabet.model";
 import {StoreService} from "../global/services/store.service";
 import {Hero, UserStateKeys} from "../shared/interfaces";
 import {Subscription} from "rxjs";
-import {FormGroup} from "@angular/forms";
+import {FormControl, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-hero-selection-page',
@@ -13,13 +13,11 @@ import {FormGroup} from "@angular/forms";
 })
 export class HeroSelectionPageComponent implements OnInit, OnDestroy {
 
-  searchValue: string = '';
   stats = [];
   heroes: Array<Hero> = [];
   randomHeroSub: Subscription;
   heroByNameSub: Subscription;
-  searchForm: FormGroup;
-  inputSearch: any;
+  searchInput: FormControl = new FormControl('', Validators.pattern('^[a-zA-Z ]*$'));
 
   constructor(private fetchService: FetchService, public storeService: StoreService) {
   }
@@ -31,10 +29,10 @@ export class HeroSelectionPageComponent implements OnInit, OnDestroy {
   }
 
   search() {
-    const value = this.searchValue.toString().toLowerCase().trim()
+    const value = this.searchInput.value.toString().toLowerCase().trim()
     if (value.length === 0) {
       alert('NO! NO! NO!')
-      this.searchValue = ''
+      this.searchInput.setValue('')
       return
     }
     if (value.length === 1) {
@@ -42,25 +40,25 @@ export class HeroSelectionPageComponent implements OnInit, OnDestroy {
         .subscribe(response => {
           this.heroes = response.filter(el => el.name[0].toLowerCase().includes(value.toLowerCase()))
           this.storeService.patchUserState(UserStateKeys.RecentSearch, value)
-          this.searchValue = ''
+          this.searchInput.setValue('')
         })
     } else {
       this.heroByNameSub = this.fetchService.getHeroesByName(value)
         .subscribe(response => {
           this.heroes = response.filter(el => el.name.toLowerCase().includes(value.toLowerCase()))
           this.storeService.patchUserState(UserStateKeys.RecentSearch, value)
-          this.searchValue = ''
+          this.searchInput.setValue('')
         })
     }
   }
 
   onLetterSelected(letter: Letter) {
-    this.searchValue = letter
+    this.searchInput.setValue(letter)
     this.search()
   }
 
   addValueToInput(el: string) {
-    this.searchValue = el
+    this.searchInput.setValue(el)
     this.search()
   }
 

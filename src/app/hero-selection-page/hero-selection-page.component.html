@@ -5,9 +5,8 @@
       <input
         type="text"
         placeholder="Enter the hero name"
+        [formControl]="searchInput"
         (keyup.enter)="search()"
-        [pattern]="'^[a-zA-Z ]*$'"
-        [(ngModel)]="searchValue"
       >
     <app-recent-searches
       (value)="addValueToInput($event)"
