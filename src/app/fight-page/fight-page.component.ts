@@ -3,7 +3,7 @@ import {Hero, Powerup, UserStateKeys} from "../shared/interfaces";
 import {StoreService} from "../global/services/store.service";
 import {FetchService} from "../global/services/fetch.service";
 import {BattleService} from "../global/services/battle.service";
-import {delay, of, Subscription} from "rxjs";
+import {delay, of, Subject, Subscription, takeUntil} from "rxjs";
 
 @Component({
   selector: 'app-fight-page',
@@ -20,7 +20,7 @@ export class FightPageComponent implements OnInit, OnDestroy {
   isBattleOver: boolean = false;
   winner: string = '';
   enemyHeroSub: Subscription;
-  fightSub: Subscription;
+  private unsubscribeOnDestroy$ = new Subject<boolean>();
 
   constructor(
     private storeService: StoreService,
@@ -39,7 +39,7 @@ export class FightPageComponent implements OnInit, OnDestroy {
 
   fight(): void {
     this.isFightNow = true;
-    this.fightSub = of('').pipe(delay(5000)).subscribe(() => {
+    of('').pipe(delay(5000),takeUntil(this.unsubscribeOnDestroy$)).subscribe(() => {
       this.winner = this.battleService.letsFight(this.myHero, this.enemyHero)
       this.isFightNow = false
       this.myheroPowerstats = {...this.myHero.powerstats}
@@ -74,6 +74,6 @@ export class FightPageComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.enemyHeroSub.unsubscribe()
-    this.fightSub.unsubscribe()
+    this.unsubscribeOnDestroy$.next(true)
   }
 }

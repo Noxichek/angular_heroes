@@ -47,7 +47,7 @@
     </div>
   </div>
 
-  <div class="modal" *ngIf="isBattleOver">
+  <div class="modal" [ngClass]="{'visibility': isBattleOver}">
     <div class="container">
       <div class="message">{{this.winner}} win this fight</div>
       <button (click)="isBattleOver = false">Close</button>
