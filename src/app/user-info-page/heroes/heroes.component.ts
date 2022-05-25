@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {StoreService} from "../../global/services/store.service";
 import {Hero} from "../../shared/interfaces";
 
@@ -7,15 +7,10 @@ import {Hero} from "../../shared/interfaces";
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.css']
 })
-export class HeroesComponent implements OnInit{
+export class HeroesComponent {
   selectedHeroes: Array<Hero> = []
 
   constructor(public storeService: StoreService) {
   }
-
-  ngOnInit(): void {
-    this.selectedHeroes = this.storeService.userState.selectedHeroes
-  }
-
 
 }
