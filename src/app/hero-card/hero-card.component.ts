@@ -20,11 +20,7 @@ export class HeroCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.hero.id
-    for(let hero of this.storeService.userState[UserStateKeys.SelectedHeroes]) {
-      if(hero.id === this.hero.id) {
-        this.hero.isSelected = true;
-      }
-    }
+    this.hero.isSelected = this.storeService.userState[UserStateKeys.SelectedHeroes].some( ({id}) => id === this.hero.id)
   }
 
   addToSelectedHeroes() {
