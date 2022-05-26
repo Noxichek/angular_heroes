@@ -39,13 +39,19 @@ h2 {
   }
 
   .table-header {
+    position: sticky;
+    top: 1%;
     background-color: #95A5A6;
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.03em;
     box-shadow: 0 5px 10px 15px rgba(34, 60, 80, 0.2);
 
-    .col {
+    //.col {
+    //  cursor: pointer;
+    //}
+
+    span:hover {
       cursor: pointer;
     }
   }
@@ -55,13 +61,18 @@ h2 {
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.1);
 
     .col-2, .col-3 {
-      cursor: pointer;
-      transition: .4s;
+      span{
+        display: inline-block;
+        cursor: pointer;
+        transition: .4s;
+      }
     }
 
-    .col-2:hover, .col-3:hover {
-      color: #82589F;
-      font-size: 18px;
+    .col-2, .col-3 {
+      span:hover {
+        color: #82589F;
+        transform: scale(1.1);
+      }
     }
   }
 
