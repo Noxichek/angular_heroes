@@ -2,10 +2,25 @@
   <h1>Enter your name, email and password</h1>
   <label>Username</label>
   <input type="text" placeholder="Your name" formControlName="username">
+  <ng-container *ngIf="createForm.get('username').invalid && createForm.get('username').touched">
+    <div class="invalid-username">
+      Please putt your full name
+    </div>
+  </ng-container>
   <label>Email</label>
   <input type="email" placeholder="Your email" formControlName="email">
+  <ng-container *ngIf="createForm.get('email').invalid && createForm.get('email').touched">
+    <div class="invalid-email">
+      Please putt the correct email
+    </div>
+  </ng-container>
   <label>Password</label>
   <input type="password" placeholder="Your password" formControlName="password">
+  <ng-container *ngIf="createForm.get('password').invalid && createForm.get('password').touched">
+    <div class="invalid-password">
+      Please putt the correct password. Password should contain: uppercase letter, lowercase letters and symbols
+    </div>
+  </ng-container>
 
   <div>
     <button type="submit" [disabled]="createForm.invalid" (click)="createNewUser()">Create new account</button>

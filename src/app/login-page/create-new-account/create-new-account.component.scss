@@ -7,6 +7,27 @@
   justify-content: space-around;
   padding: 40px;
   border-radius: 15px;
+
+  .invalid-username {
+    top: 43%;
+    position: absolute;
+    padding: 5px;
+    color: red;
+  }
+
+  .invalid-email {
+    top: 51%;
+    position: absolute;
+    padding: 5px;
+    color: red;
+  }
+
+  .invalid-password {
+    top: 58.2%;
+    position: absolute;
+    padding: 5px;
+    color: red;
+  }
 }
 
 p {
@@ -33,6 +54,7 @@ input {
   height: 40px;
   border-radius: 10px;
   border-color: darkgray;
+  margin-bottom: 15px;
 
 &.ng-valid.ng-touched {
    border-color: green;

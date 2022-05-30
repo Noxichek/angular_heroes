@@ -17,6 +17,7 @@ export class HistoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.battles = [...this.storeService.userState[UserStateKeys.BattleHistory]]
+    this.sortByDate()
   }
 
   sortByDate() {
